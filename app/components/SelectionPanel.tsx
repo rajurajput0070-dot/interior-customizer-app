@@ -27,6 +27,7 @@ export function SelectionPanel({
   onLaminateChange,
   onHardwareChange
 }: SelectionPanelProps) {
+  // Labels are localized so staff can switch between English and Hindi.
   const labels = {
     en: {
       room: 'Room type',

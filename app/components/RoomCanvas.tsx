@@ -45,6 +45,7 @@ export function RoomCanvas({ room, laminate, hardware, language }: RoomCanvasPro
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
+    // Draw a lightweight, real-time preview on the canvas for showroom tablets.
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -69,6 +70,7 @@ export function RoomCanvas({ room, laminate, hardware, language }: RoomCanvasPro
 
     context.font = '14px Inter, sans-serif';
     context.fillStyle = '#2b2b2b';
+    // Add room-specific callouts to make the preview clearer for customers.
     roomData.notes.forEach((note, index) => {
       context.fillText(`• ${note}`, 32, 74 + index * 22);
     });
@@ -78,6 +80,7 @@ export function RoomCanvas({ room, laminate, hardware, language }: RoomCanvasPro
 
     context.fillStyle = '#ffffff';
     context.font = 'bold 14px Inter, sans-serif';
+    // Laminates are highlighted as the primary finish selection.
     context.fillText(laminate, 42, height - 64);
 
     context.fillStyle = '#5a2f00';
@@ -85,6 +88,7 @@ export function RoomCanvas({ room, laminate, hardware, language }: RoomCanvasPro
 
     context.fillStyle = '#ffffff';
     context.font = '12px Inter, sans-serif';
+    // Hardware is shown as a secondary strip for clarity.
     context.fillText(hardware, 42, height - 24);
   }, [room, laminate, hardware, language]);
 

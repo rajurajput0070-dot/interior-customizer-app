@@ -73,6 +73,7 @@ const getStoredDesigns = (): SavedDesign[] => {
 };
 
 export default function HomePage() {
+  // UI state is kept local to keep the app lightweight and offline-friendly.
   const [language, setLanguage] = useState<'en' | 'hi'>('en');
   const [room, setRoom] = useState<RoomType>('Bedroom');
   const [laminate, setLaminate] = useState(laminates[0]);
@@ -83,6 +84,7 @@ export default function HomePage() {
   const [savedCode, setSavedCode] = useState<string | null>(null);
 
   useEffect(() => {
+    // Restore the last saved design to speed up repeat customer demos.
     const stored = getStoredDesigns();
     if (stored.length === 0) return;
     const last = stored[stored.length - 1];
@@ -97,6 +99,7 @@ export default function HomePage() {
   }, [room, laminate, hardware, notes, savedCode]);
 
   const handleSave = () => {
+    // Persist designs locally for offline usage and admin dashboard review.
     const code = createCode();
     const newDesign: SavedDesign = {
       code,

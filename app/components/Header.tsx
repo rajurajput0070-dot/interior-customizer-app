@@ -6,6 +6,7 @@ interface HeaderProps {
 }
 
 export function Header({ language, onLanguageChange }: HeaderProps) {
+  // Branding copy lives here so the showroom team can update it quickly.
   const text = {
     en: {
       name: 'Sri Majisa Plywood & Interior Hardware',

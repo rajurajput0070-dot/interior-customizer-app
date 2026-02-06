@@ -31,10 +31,12 @@ export default function AdminPage() {
   const [designs, setDesigns] = useState<SavedDesign[]>([]);
 
   useEffect(() => {
+    // Load leads saved on this device (offline-ready).
     setDesigns(loadDesigns().reverse());
   }, []);
 
   const handleClear = () => {
+    // Clear local leads for a fresh showroom day.
     window.localStorage.removeItem(STORAGE_KEY);
     setDesigns([]);
   };

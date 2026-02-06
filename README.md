@@ -11,6 +11,36 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) on mobile or a tablet browser.
 
+## Local Setup (Windows)
+
+1. Install **Node.js 20 LTS** from <https://nodejs.org/> and confirm it is available:
+
+```powershell
+node --version
+npm --version
+```
+
+2. Clone this repo and install dependencies:
+
+```powershell
+git clone <your-repo-url>
+cd interior-customizer-app
+npm install
+```
+
+3. Start the development server:
+
+```powershell
+npm run dev
+```
+
+4. Visit [http://localhost:3000](http://localhost:3000) in Edge/Chrome. For tablet testing, open the same URL on the device (ensure both are on the same network).
+
+### Windows Notes
+
+- If `npm` uses a proxy or restricted registry, configure `.npmrc` accordingly.
+- For offline demo usage, run the dev server once to cache dependencies, then the app can run without external services.
+
 ## Features
 
 - **Mobile-first, touch-optimized UI** for showroom tablets and phones.
